@@ -38,12 +38,6 @@ fn build_client() -> Result<Client> {
         ),
     );
 
-    println!("Default headers:");
-    for (key, value) in headers.iter() {
-        println!("{}: {}", key.as_str(), value.to_str().unwrap_or("<binary>"));
-    }
-    println!();
-
     Client::builder()
         .timeout(Duration::from_secs(REQUEST_TIMEOUT_SECS))
         .default_headers(headers)
@@ -61,8 +55,6 @@ async fn main() -> Result<()> {
     };
 
     let client = build_client()?;
-    println!("Extra header:");
-    println!("Cookie: {}", cookie_value);
 
     let response = client
         .get(TARGET_URL)
