@@ -1,13 +1,16 @@
 # netease-music-world-rs
 
-> ~~Chrome extension~~ A CLI tool for unlocking overseas access to NetEase Music
+<div align="center">
+	<img src="images/ferris-ncm.svg" width="283" alt="Ferris NCM ver." />
+</div>
 
+> ~~Chrome extension~~ A CLI tool for unlocking overseas access to NetEase Music
 
 This is a minimal CLI tool written in Rust that helps overseas users accessing NetEase Music.
 
 The main approach is inspired by [NetEaseMusicWorldNext](https://github.com/kogamitora/NetEaseMusicWorldNext). It works great, but relying on a browser sucks, especially when you are on a road trip without a laptop and can't use the extension. :)
 
-## Strongly Recommended: Automate With GitHub Actions
+## Strongly Recommended: Automate with GitHub Actions
 
 Run the CLI from GitHub on a schedule instead of keeping a machine online:
 
