@@ -1,0 +1,32 @@
+name: NetEase Music Auto Fetch
+
+on:
+  schedule:
+    - cron: "0 */8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run-client:
+    runs-on: ubuntu-latest
+    env:
+      MUSIC_U: ${{ secrets.MUSIC_U }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo artifacts
+        uses: swatinem/rust-cache@v2
+
+      - name: Run client
+        run: |
+          if [ -z "$MUSIC_U" ]; then
+            echo "MUSIC_U secret is not configured" >&2
+            exit 1
+          fi
+          cargo run --release -- --music-u="$MUSIC_U"

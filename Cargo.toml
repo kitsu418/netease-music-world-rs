@@ -1,0 +1,10 @@
+[package]
+name = "netease-music-world-rs"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive", "env"] }
+reqwest = { version = "0.12", features = ["json", "gzip"] }
+tokio = { version = "1.39", features = ["macros", "rt-multi-thread"] }
